@@ -16,7 +16,7 @@ class Buffer:
     def __init__(self, size):
         self.size = size
         self.finish_time = deque()
-
+        
     def process(self, request):
         # write your code here
         while self.finish_time and self.finish_time[0] <= request.arrival_time:
