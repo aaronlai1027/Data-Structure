@@ -18,10 +18,10 @@ class QueryProcessor:
         self.buckets = [[] for _ in range(bucket_count)]
 
     def _hash_func(self, s):
-        ans = 0
+        h = 0
         for c in reversed(s):
-            ans = (ans * self._multiplier + ord(c)) % self._prime
-        return ans % self.bucket_count
+            h = (h * self._multiplier + ord(c)) % self._prime
+        return h % self.bucket_count
 
     def read_query(self):
         return Query(input().split())
